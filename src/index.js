@@ -23,17 +23,34 @@ fastify.post('/uppercase', (request, reply) => {
 });
 
 fastify.post('/lowercase', (request, reply) => {
- let str = request.body.toLowerCase();
- if (str.includes('fuck')) {
-    return reply.status(403).send('unresolved');
-  }
-  else {
-    return reply.status(200).send(str);
-  }
+  let str = request.body.toLowerCase();
+  if (str.includes('fuck')) {
+      return reply.status(403).send('unresolved');
+    }
+    else {
+      return reply.status(200).send(str);
+    }
 });
 
 fastify.get('/user/:id', (request, reply) => {
+  let id = request.params.id;
+  if (users[id]) {
+    reply.status(200).send(users[id]);
+  }
+  else {
+    reply.status(400).send('User not exist');
+  }
+});
 
-})
+fastify.get('/users', (request, reply) => {
+  let usersArray = Object.values(users);
+  let { filter, value } = request.query;
+
+  if (request.query) {
+
+    
+  }
+
+});
 
 export default fastify;
