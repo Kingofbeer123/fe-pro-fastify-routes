@@ -30,6 +30,6 @@ fastify.post('/lowercase', (request, reply) => {
   else {
     return reply.status(200).send(body);
   }
-})
+});
 
 export default fastify;
