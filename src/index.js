@@ -18,7 +18,7 @@ fastify.post('/uppercase', (request, reply) => {
     return reply.status(403).send('unresolved');
   }
   else {
-    return reply.status(200).send(body);
+    return reply.send(body);
   }
 });
 
@@ -28,7 +28,7 @@ fastify.post('/lowercase', (request, reply) => {
     return reply.status(403).send('unresolved');
   }
   else {
-    return reply.status(200).send(body);
+    return reply.send(body);
   }
 });
 
